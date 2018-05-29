@@ -22,4 +22,12 @@ public class ContactService {
     public List<Contact> findAll(){
     	return dao.findAll();
     }
+    
+    public void delete(Long id) {
+    	try {
+			dao.delete(id);
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+    }
 }

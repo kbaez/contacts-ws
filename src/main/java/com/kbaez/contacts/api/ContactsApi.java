@@ -40,13 +40,23 @@ public class ContactsApi {
 	}
 	
 	@RequestMapping(value="/contact", method=RequestMethod.GET)
-	public List<Contact> getById(){
+	public List<Contact> getAll(){
 		return contactService.findAll();
+	}
+	
+	@RequestMapping(value="/contact/{id}", method=RequestMethod.GET)
+	public Contact getById(@PathVariable Long id){
+		return contactService.findById(id);
 	}
 	
 	@RequestMapping(value="/contact/{id}", method=RequestMethod.DELETE)
 	public void deleteById(@PathVariable Long id){
 		contactService.delete(id);
+	}
+	
+	@RequestMapping(value="/contact", method=RequestMethod.PUT)
+	public void update(@RequestBody Contact contact){
+		contactService.update(contact);
 	}
 	
 }

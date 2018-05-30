@@ -30,4 +30,16 @@ public class ContactService {
 			e.printStackTrace();
 		}
     }
+    
+    public Contact findById(Long id){
+    	return dao.findOne(id);
+    }
+    
+    public void update(Contact contact){
+    	try {
+    		dao.save(contact);
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+    }
 }
